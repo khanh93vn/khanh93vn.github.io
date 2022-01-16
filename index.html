@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang=vi>
+  <header>
+    <meta charset="utf-8">
+    
+    <meta name="author" content="Khanh Nguyen">
+    <meta name="description" content="A small app to assist irregular verbs memorization">
+    
+    <!-- <meta property="og:url" content="images/gau-heu.png"> -->
+    <!-- <meta property="og:image" content="images/gau-heu.png"> -->
+    <!-- <meta property="og:description" content="Shop Gấu Hêu chuyên cung cấp các dịch vụ liên quan đến ăn uống, thời trang, vui chơi giải trí..."> -->
+    <!-- <meta property="og:title" content="Shop Gấu Hêu"> -->
+    
+    <link href="styles/style.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> -->
+    <title>Irregular verb exercise</title>
+  </header>
+    <body>
+      <h1>Irregular verb exercise</h1>
+      <p>Try to fill the missing columns.</p>
+      <table>
+        <tr>
+          <th style="width:75px"></th>
+          <th style="width:100px">V1</th>
+          <th style="width:100px">V2</th>
+          <th style="width:100px">V3</th>
+          <th style="width:125px">Meaning</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td id=0></td>
+          <td id=10></td>
+          <td id=20></td>
+          <td id=30></td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td id=1></td>
+          <td id=11></td>
+          <td id=21></td>
+          <td id=31></td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td id=2></td>
+          <td id=12></td>
+          <td id=22></td>
+          <td id=32></td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td id=3></td>
+          <td id=13></td>
+          <td id=23></td>
+          <td id=33></td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td id=4></td>
+          <td id=14></td>
+          <td id=24></td>
+          <td id=34></td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td id=5></td>
+          <td id=15></td>
+          <td id=25></td>
+          <td id=35></td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td id=6></td>
+          <td id=16></td>
+          <td id=26></td>
+          <td id=36></td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td id=7></td>
+          <td id=17></td>
+          <td id=27></td>
+          <td id=37></td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td id=8></td>
+          <td id=18></td>
+          <td id=28></td>
+          <td id=38></td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td id=9></td>
+          <td id=19></td>
+          <td id=29></td>
+          <td id=39></td>
+        </tr>
+        <tr>
+          <th>Chọn cột gợi ý</th>
+          <td>
+            <input type="radio" id="hint1" name="hint" value=0>
+          </td>
+          <td>
+            <input type="radio" id="hint2" name="hint" value=10>
+          </td>
+          <td>
+            <input type="radio" id="hint3" name="hint" value=20>
+          </td>
+          <td>
+            <input type="radio" id="hint4" name="hint" value=30 checked>
+          </td>
+        </tr>
+      </table>
+  <button onClick="resetTable()">Làm mới</button>
+  <button onClick="showAnswers()">Đáp án</button>
+  <script src="scripts/main.js"></script>
+  </body>
+</html>
