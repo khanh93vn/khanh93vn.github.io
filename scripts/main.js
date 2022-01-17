@@ -1,9 +1,34 @@
-const v1 = ['deal', 'dig', 'do', 'draw', 'dream', 'drink', 'drive', 'dwell', 'eat', 'fall', 'feed', 'feel', 'fight', 'find', 'flee', 'fling', 'fly', 'forbid', 'forecast', 'forget', 'freeze', 'get', 'give', 'go', 'grind', 'grow', 'hang', 'have', 'hear', 'heave', 'hew', 'hide', 'hit', 'hold', 'hurt'];
-const v2 = ['dealt', 'dug', 'did', 'drew', 'dreamt, dreamed', 'drank', 'drove', 'dwelt, dwelled', 'ate', 'fell', 'fed', 'felt', 'fought', 'found', 'fled', 'flung', 'flew', 'forbad, forbade', 'forecast, forecasted', 'forgot', 'froze', 'got', 'gave', 'went', 'ground', 'grew', 'hung', 'had', 'heard', 'heaved, hove', 'hewed', 'hid', 'hit', 'held', 'hurt'];
-const v3 = ['dealt', 'dug', 'done', 'drawn', 'dreamt, dreamed', 'drunk', 'driven', 'dwelt, dwelled', 'eaten', 'fallen', 'fed', 'felt', 'fought', 'found', 'fled', 'flung', 'flown', 'forbidden', 'forecast, forecasted', 'forgotten', 'frozen', 'got, gotten', 'given', 'gone', 'ground', 'grown', 'hung', 'had', 'heard', 'heaved, hove', 'hewn', 'hidden', 'hit', 'held', 'hurt'];
-const meaning = ['Giao thiệp', 'Đào', 'Làm', 'Vẽ', 'Mơ', 'Uống', 'Lái xe', 'Ngụ, ở', 'Ăn', 'Rơi, ngã', 'Cho ăn, nuôi', 'Cảm thấy', 'Chiến đấu', 'Thấy', 'Chạy trốn', 'Tung, quăng', 'Bay', 'Cấm', 'Dự đoán', 'Quên', 'Đóng băng', 'Có được', 'Đưa', 'Đi', 'Nghiền, xay', 'Mọc, trồng', 'Treo lên', 'Có, sở hữu', 'Nghe', 'Trục lên', 'Chặt, đốn', 'Trốn', 'Đụng', 'Cầm, nắm', 'Làm đau']
+// constants -----------------------------------------------------------------
+const V1 = ['deal', 'dig', 'do', 'draw', 'dream', 'drink', 'drive', 'dwell', 'eat', 'fall', 'feed', 'feel', 'fight', 'find', 'flee', 'fling', 'fly', 'forbid', 'forecast', 'forget', 'freeze', 'get', 'give', 'go', 'grind', 'grow', 'hang', 'have', 'hear', 'heave', 'hew', 'hide', 'hit', 'hold', 'hurt'];
+const V2 = ['dealt', 'dug', 'did', 'drew', 'dreamt, dreamed', 'drank', 'drove', 'dwelt, dwelled', 'ate', 'fell', 'fed', 'felt', 'fought', 'found', 'fled', 'flung', 'flew', 'forbad, forbade', 'forecast, forecasted', 'forgot', 'froze', 'got', 'gave', 'went', 'ground', 'grew', 'hung', 'had', 'heard', 'heaved, hove', 'hewed', 'hid', 'hit', 'held', 'hurt'];
+const V3 = ['dealt', 'dug', 'done', 'drawn', 'dreamt, dreamed', 'drunk', 'driven', 'dwelt, dwelled', 'eaten', 'fallen', 'fed', 'felt', 'fought', 'found', 'fled', 'flung', 'flown', 'forbidden', 'forecast, forecasted', 'forgotten', 'frozen', 'got, gotten', 'given', 'gone', 'ground', 'grown', 'hung', 'had', 'heard', 'heaved, hove', 'hewn', 'hidden', 'hit', 'held', 'hurt'];
+const MEANINGS = ['Giao thiệp', 'Đào', 'Làm', 'Vẽ', 'Mơ', 'Uống', 'Lái xe', 'Ngụ, ở', 'Ăn', 'Rơi, ngã', 'Cho ăn, nuôi', 'Cảm thấy', 'Chiến đấu', 'Thấy', 'Chạy trốn', 'Tung, quăng', 'Bay', 'Cấm', 'Dự đoán', 'Quên', 'Đóng băng', 'Có được', 'Đưa', 'Đi', 'Nghiền, xay', 'Mọc, trồng', 'Treo lên', 'Có, sở hữu', 'Nghe', 'Trục lên', 'Chặt, đốn', 'Trốn', 'Đụng', 'Cầm, nắm', 'Làm đau']
+const TEST_SIZE = 10;
 
+// globals -------------------------------------------------------------------
 let randomizedWords = [];
+
+// functions -----------------------------------------------------------------
+function shuffle(array) {
+	// source:
+	// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+	
+	let currentIndex = array.length,  randomIndex;
+
+	// While there remain elements to shuffle...
+	while (currentIndex != 0) {
+
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		// And swap it with the current element.
+		[array[currentIndex], array[randomIndex]] = [
+		  array[randomIndex], array[currentIndex]];
+	}
+
+	return array;
+}
 
 function randomize() {
     // Hàm random trả về giá trị là chuỗi 4 mảng nối lại với
@@ -11,11 +36,23 @@ function randomize() {
     // về được gán vào biến toàn cục 'randomizedWords'
     
     // TODO: viết hàm random thật
-    rv1 = v1.slice(0, 10);
-    rv2 = v2.slice(0, 10);
-    rv3 = v3.slice(0, 10);
-    rm = meaning.slice(0, 10);
-    
+    // rv1 = V1.slice(0, 10);
+    // rv2 = V2.slice(0, 10);
+    // rv3 = V3.slice(0, 10);
+    // rm = MEANINGS.slice(0, 10);
+	
+	// copy mảng
+    var rv1 = [], rv2 = [], rv3 = [], rm = [];
+	
+	// xáo trộn thứ tự
+	var indices = shuffle([...Array(V1.length).keys()])
+	for (var i = 0; i < TEST_SIZE; i++) {
+		rv1.push(V1[indices[i]]);
+		rv2.push(V2[indices[i]]);
+		rv3.push(V3[indices[i]]);
+		rm.push(MEANINGS[indices[i]]);
+	}
+	
     randomizedWords = rv1.concat(rv2).concat(rv3).concat(rm);
 }
 
@@ -34,9 +71,6 @@ function resetTable() {
 }
 
 function showAnswers() {
-    // TODO:
-    // - Add a loop to fill all cols with generated contents
-    document.getElementById(2).innerHTML = "YO";
     for (var i = 0; i < 40; i++) {
         document.getElementById(i).innerHTML = randomizedWords[i];
     }
@@ -49,5 +83,6 @@ function radioButtonOnClickHandler(e) {
     } 
 }
 
+// ---------------------------------------------------------------------------
 document.onclick = radioButtonOnClickHandler;
 resetTable();
