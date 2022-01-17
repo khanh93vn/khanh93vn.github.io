@@ -3,10 +3,10 @@
 df = pd.read_excel("data.xlsx", header=None)
 
 script = """
-const v1 = [{}];
-const v2 = [{}];
-const v3 = [{}];
-const meaning = [{}]""".format(
+const V1 = [{}];
+const V2 = [{}];
+const V3 = [{}];
+const MEANING = [{}]""".format(
     *(', '.join([*map(lambda s: f"'{s}'", df[i])]) for i in range(4))
 )
 
